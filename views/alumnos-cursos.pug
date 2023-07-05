@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Mi Aplicación
+  body
+    h1 Mi Aplicación
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js")
+    form(action=`/#` method="GET")
+        button(type="submit") Alumnos
+    h2 Cursos de alumnos existentes
+    each dato in datos
+        ul
+            li= dato.nombre_alumno
+            li= dato.nombre_curso
+            li= dato.descripcion_curso
+            
+            form(action=`/editar/alumno-curso/${dato.id_alumno}` method="GET")
+                button(type="submit") Editar
+
+            form(action=`/delete/alumno-curso/${dato.id_alumno}` method="POST")
+                button(type="submit") Eliminar
